@@ -3,6 +3,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 	header('location: login.php');
+	exit;
 }
  ?>
 <!DOCTYPE html>
@@ -18,9 +19,7 @@ if (!isset($_SESSION['login'])) {
 			Selamat datang :
 			
 		</h2>
-
-
-		<a href="login.php ?>" class="btn btn-info">login akun</a>
+		<a href="tambah.php" class="btn btn-info">tambah data</a>
 
 		<a href="logout.php" class="btn btn-secondary float-end mb-3">logout</a>
 
@@ -55,8 +54,13 @@ if (!isset($_SESSION['login'])) {
 						<td>
 						
 
-							<a href="transaksi.php?>?id=<?= $data->id;?>">
-							<input type="submit" value="langsung beli" onclick="confirm('yakin ingin membeli') " class="btn btn-danger">
+							
+							<a href="hapus.php?id=<?= $data->id;?>">
+							<input type="submit" value="hapus" onclick="confirm('yakin ingin menghapus data?') " class="btn btn-danger">
+						</a>
+							<a href="edit.php?id=<?= $data->id;?>">
+							<input type="submit" value="edit" class="btn btn-warning">
+							</a>
 							</a>
 
 						</td>
@@ -70,27 +74,6 @@ if (!isset($_SESSION['login'])) {
 		</table>
 	
 
-<body>
-<div class="container">
-    <h2 class="alert alert-info">Tulis pesanan</h2>
-
-		<form action="" method="post">
-
-        <div class="mb-3">
-            <label>nama</label>
-            <input required type="text" name="txtauthor" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label>jumlah</label>
-            <input type="text" name="txttitle" class="form-control">
-        </div>
-
-       
-        <input type="submit" name="simpan" value="Simpan" class="btn btn-primary">
-        <a href="index.php" class="btn btn-secondary">Kembali</a>
-    </form>
-	</div>
 
  
 

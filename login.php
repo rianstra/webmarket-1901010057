@@ -5,17 +5,19 @@
 
 	if (isset($_POST['login'])) {
 		$username = $_POST['txtusername'];
-		$password =  sha1($_POST['txtpassword']);
+		$password = $_POST['txtpassword'];
 
 		$query = mysqli_query($koneksi,"SELECT * FROM user WHERE 
 			username='$username' and password='$password' ");
+
+		$_SESSION['login'] = true;
 
 		if (mysqli_num_rows($query) === 1 ) {
 
 			$data = mysqli_fetch_object($query);
 
-			$_SESSION['login'] = true;
-		
+			
+			
 			header('location:index1.php');
 
 		}
